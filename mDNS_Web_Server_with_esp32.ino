@@ -20,9 +20,9 @@
 #include <ESPmDNS.h>
 #include <WiFiClient.h>
 
-const char* ssid = "pradeepraja";
-const char* password = "Yamuna@03";
-int LED = 23;
+const char* ssid = "Your SSID";
+const char* password = "Your password";
+int LED = 23;//LED IO NUMBER IN ESP 32
 // TCP server at port 80 will respond to HTTP requests
 WiFiServer server(80);
 
@@ -50,7 +50,7 @@ void setup(void)
 
     // Set up mDNS responder:
     // - first argument is the domain name, in this example
-    //   the fully-qualified domain name is "esp8266.local"
+    //   the fully-qualified domain name is "esp32.local"
     // - second argument is the IP address to advertise
     //   we send our IP address on the WiFi network
     if (!MDNS.begin("esp32")) {
