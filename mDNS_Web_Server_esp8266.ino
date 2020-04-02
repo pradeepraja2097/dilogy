@@ -21,12 +21,10 @@
 #include <WiFiClient.h>
 
 #ifndef STASSID
-#define STASSID "pradeepraja"
-#define STAPSK  "Yamuna@03"
+#define STASSID "your ssid"
+#define STAPSK  "Your password"
 #endif
-int value = LOW;;
-String request;
-int LED = 16;
+int LED = 16;//esp8266 gpio pin
 
 const char* ssid = STASSID;
 const char* password = STAPSK;
@@ -113,24 +111,19 @@ void loop(void) {
   if(req.indexOf("/LED=ON") != -1)
   {
     digitalWrite(LED, HIGH); // Turn ON LED
-    value = HIGH;
+    req="/";
   }
   if(req.indexOf("/LED=OFF") != -1)
   {
     digitalWrite(LED, LOW); // Turn OFF LED
-    value = LOW;
+    req="/";
   }
   String s;
   if (req == "/") {
     IPAddress ip = WiFi.localIP();
     String ipStr = String(ip[0]) + '.' + String(ip[1]) + '.' + String(ip[2]) + '.' + String(ip[3]);
     s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>LED\r\n<br><br>\r\n<a href=\"/LED=ON\"\"><button>ON</button></a>\r\n<a href=\"/LED=OFF\"\"><button>OFF</button></a><br />\n</html>\r\n ";
-   // s += ipStr;
-   // s = "</html>\r\n";
     delay(10);
-   
-
-    //s="<br><br>\r\n<a href=\"/LED=ON\"\"><button>ON</button></a>\r\n<a href=\"/LED=OFF\"\"><button>OFF</button></a><br />\n</html>";
     Serial.println("Sending 200");
   }
   else {
