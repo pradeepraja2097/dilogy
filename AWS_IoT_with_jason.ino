@@ -21,8 +21,8 @@ extern "C" {
 #include "libb64/cdecode.h"
 }
 
-const char* ssid = "pradeepraja";
-const char* password = "Yamuna@03";
+const char* ssid = "XXXXX";
+const char* password = "XXXXX";
 
 // Find this awsEndpoint in the AWS Console: Manage - Things, choose your thing
 // choose Interact, its the HTTPS Rest endpoint.  Endpoints ARE regional
